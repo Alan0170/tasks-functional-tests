@@ -22,6 +22,7 @@ public class TaskTest {
 	    if (ip == null || ip.isEmpty()) {
 	        throw new IllegalStateException("The APP_IP environment variable has not been set!");
 	    }
+		System.out.println("http://" + ip + ":8002/tasks/");
 		ChromeOptions chromeOptions = new ChromeOptions();
 		WebDriver driver = new RemoteWebDriver(new URL("http://" + ip + ":4444"), chromeOptions);
 		driver.navigate().to("http://" + ip + ":8002/tasks/");
