@@ -25,12 +25,13 @@ public class HealthCheckIT {
 		try {
 			driver.navigate().to("http://" + ip + ":9999/tasks/");
 			driver.manage().timeouts().implicitlyWait(6, TimeUnit.SECONDS);
+			
 			String buildVersion = System.getenv("BUILD_NUMBER");
 			if (buildVersion == null || buildVersion.isEmpty()) {
 				throw new IllegalStateException("The BUILD_VERSION environment variable has not been set!");
 			}
 		    String version = driver.findElement(By.id("version")).getText();
-		    Assert.assertEquals(buildVersion, version);
+		    Assert.assertEquals("build_"+buildVersion, version);
 		} finally {
 		    driver.quit();
 		}
