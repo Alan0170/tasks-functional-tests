@@ -102,12 +102,12 @@ public class TaskTest {
 			driver.findElement(By.id("dueDate")).sendKeys("10/10/2040");
 			driver.findElement(By.id("saveButton")).click();
 			String message = driver.findElement(By.id("message")).getText();
-			Assert.assertEquals("Sucess!", message);
+			Assert.assertEquals("Success!", message);
 			
 			//Removing Task
-			driver.findElement(By.linkText("/tasks/delete/1")).click();
+			driver.findElement(By.linkText("Remove")).click();
 			message = driver.findElement(By.id("message")).getText();
-			Assert.assertEquals("Sucess!", message);
+			Assert.assertEquals("Success!", message);
 		} finally {
 			driver.quit();
 		}
